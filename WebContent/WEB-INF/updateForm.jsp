@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.javaex.vo.*" %>
-<%	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-PhoneVo pv = (PhoneVo)request.getAttribute("targetPerson"); 
-int id = Integer.parseInt(request.getParameter("id"));
-
-%>
 
 
 
@@ -18,11 +14,11 @@ int id = Integer.parseInt(request.getParameter("id"));
 <body>
 		<form action="pbc" method="get">
 		
-			이름 : <input type="text" name="name" value="<%=pv.name%>"><br>
-			핸드폰 번호 : <input type="text" name="hp" value="<%=pv.hp%>"><br>
-			회사 번호 : <input type="text" name="company" value="<%=pv.company%>"><br>
+			이름 : <input type="text" name="name" value="${targetPerson.name }"><br>
+			핸드폰 번호 : <input type="text" name="hp" value="${targetPerson.hp }"><br>
+			회사 번호 : <input type="text" name="company" value="${targetPerson.company }"><br>
 					<input type="hidden" name="action" value="update">
-					<input type="hidden" name="id" value="<%=id%>">
+					<input type="hidden" name="id" value="${param.id }">
 			<button type="submit">수정</button>
 			
 		</form>
